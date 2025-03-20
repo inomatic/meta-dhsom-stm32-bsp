@@ -610,7 +610,7 @@ index ac90fcbf0c091..c9f8a52d2033f 100644
 +				interrupts = <GIC_SPI 96 IRQ_TYPE_LEVEL_HIGH>;
 +				g-rx-fifo-size = <512>;
 +				g-np-tx-fifo-size = <32>;
-+				g-tx-fifo-size = <256 16 16 16 16 16 16 16>;
++				g-tx-fifo-size = <128 128 128 128 64 32 16 16>;
 +				dr_mode = "otg";
 +				otg-rev = <0x200>;
 +				usb33d-supply = <&scmi_usb33>;
