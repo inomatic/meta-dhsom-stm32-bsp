@@ -847,7 +847,7 @@ new file mode 100644
 index 00000000000..fb3d86deb64
 --- /dev/null
 +++ b/configs/stm32mp13_dhcor_defconfig
-@@ -0,0 +1,150 @@
+@@ -0,0 +1,149 @@
 +CONFIG_ARM=y
 +CONFIG_ARCH_STM32MP=y
 +CONFIG_TFABOOT=y
@@ -996,7 +996,6 @@ index 00000000000..fb3d86deb64
 +CONFIG_FAT_WRITE=y
 +CONFIG_ERRNO_STR=y
 +# CONFIG_EFI_LOADER is not set
-+CONFIG_CMD_JFFS2=y
 +CONFIG_CMD_SQUASHFS=y
 -- 
 2.45.2
