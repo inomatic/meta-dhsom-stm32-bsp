@@ -847,7 +847,7 @@ new file mode 100644
 index 00000000000..fb3d86deb64
 --- /dev/null
 +++ b/configs/stm32mp13_dhcor_defconfig
-@@ -0,0 +1,148 @@
+@@ -0,0 +1,150 @@
 +CONFIG_ARM=y
 +CONFIG_ARCH_STM32MP=y
 +CONFIG_TFABOOT=y
