@@ -35,8 +35,8 @@ index 5f4f6b6e427a5..bacb70b4256bc 100644
 +&ethernet1 {
 +	phy-handle = <&ethphy1>;
 +	phy-mode = "rmii";
-+	pinctrl-0 = <&eth1_rmii_pins_a>;
-+	pinctrl-1 = <&eth1_rmii_sleep_pins_a>;
++	pinctrl-0 = <&eth1_rgmii_pins_a>;
++	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
 +	pinctrl-names = "default", "sleep";
 + max-speed = <100>;
 +	status = "okay";

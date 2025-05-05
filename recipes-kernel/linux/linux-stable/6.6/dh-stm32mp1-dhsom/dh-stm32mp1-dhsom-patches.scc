@@ -34,11 +34,7 @@ patch 0033-ARM-dts-stm32-Add-pinmux-nodes-for-DH-electronics-ST.patch
 patch 0034-ARM-dts-stm32-Add-support-for-STM32MP13xx-DHCOR-SoM-.patch
 patch 0035-ARM-dts-stm32-add-ethernet1-and-ethernet2-support-on.patch
 patch 0036-ARM-dts-stm32-Add-ethernet-support-for-DH-STM32MP13x.patch
-patch 0037-ARM-dts-stm32-Add-ethernet-MAC-nvmem-cells-to-DH-STM.patch
 patch 0038-ARM-dts-stm32-Keep-MDIO-bus-in-AF-across-suspend-DH-.patch
-patch 0039-ARM-dts-stm32-Disable-PHY-clock-output-on-DH-STM32MP.patch
-patch 0040-ARM-dts-stm32-Describe-PHY-LEDs-in-DH-STM32MP13xx-DH.patch
 patch 0041-ARM-dts-stm32-Add-DTOs-for-STM32MP13xx-DHCOR-SoM-and.patch
-patch 0042-net-phy-realtek-Fix-setting-of-PHY-LEDs-Mode-B-bit-o.patch
 patch 0043-leds-trigger-netdev-Check-offload-ability-on-interfa.patch
 patch 0044-ARM-dts-stm32-Increase-CPU-core-voltage-on-STM32MP13.patch
