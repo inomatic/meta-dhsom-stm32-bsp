@@ -72,7 +72,7 @@ index 0000000000000..5f4f6b6e427a5
 +
 +	aliases {
 +		serial2 = &usart1;
-+		serial3 = &usart2;
++//		serial3 = &usart2;
 +	};
 +
 +	chosen {

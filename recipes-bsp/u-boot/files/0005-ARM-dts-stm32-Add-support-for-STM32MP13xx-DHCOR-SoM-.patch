@@ -111,7 +111,7 @@ index 00000000000..fc1c48ad56d
 +		ethernet0 = &eth1;
 +		ethernet1 = &eth2;
 +		serial2 = &usart1;
-+		serial3 = &usart2;
++//		serial3 = &usart2;
 +	};
 +
 +	chosen {
@@ -221,7 +221,7 @@ index 00000000000..fc1c48ad56d
 +};
 +
 +&gpioa {
-+	gpio-line-names = "", "", "", "",
++	gpio-line-names = "POK_LED_GREEN", "", "", "",
 +			  "", "DHSBC_USB_PWR_CC1", "", "",
 +			  "", "", "", "DHSBC_nETH1_RST",
 +			  "", "DHCOR_HW-CODING_0", "", "";
@@ -245,7 +245,7 @@ index 00000000000..fc1c48ad56d
 +	gpio-line-names = "", "", "", "",
 +			  "", "DHCOR_RAM-CODING_0", "", "",
 +			  "", "DHCOR_RAM-CODING_1", "", "",
-+			  "", "", "", "";
++			  "", "", "", "POK_LED_BLUE";
 +};
 +
 +&gpioe {
@@ -257,7 +257,7 @@ index 00000000000..fc1c48ad56d
 +
 +&gpiof {
 +	gpio-line-names = "", "", "DHSBC_USB_PWR_nFLT", "",
-+			  "", "", "", "",
++			  "POK_LED_RED", "", "", "",
 +			  "", "", "", "",
 +			  "DHCOR_WL_REG_ON", "DHSBC_USB_PWR_CC2", "", "";
 +};
