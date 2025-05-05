@@ -34,11 +34,11 @@ index 5f4f6b6e427a5..bacb70b4256bc 100644
  
 +&ethernet1 {
 +	phy-handle = <&ethphy1>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-0 = <&eth1_rgmii_pins_a>;
-+	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
++	phy-mode = "rmii";
++	pinctrl-0 = <&eth1_rmii_pins_a>;
++	pinctrl-1 = <&eth1_rmii_sleep_pins_a>;
 +	pinctrl-names = "default", "sleep";
-+	st,ext-phyclk;
++ max-speed = <100>;
 +	status = "okay";
 +
 +	mdio {
@@ -48,10 +48,10 @@ index 5f4f6b6e427a5..bacb70b4256bc 100644
 +
 +		ethphy1: ethernet-phy@1 {
 +			/* RTL8211F */
-+			compatible = "ethernet-phy-id001c.c916";
-+			interrupt-parent = <&gpiog>;
-+			interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
-+			reg = <1>;
++//AAA			compatible = "ethernet-phy-id001c.c916";
++//AAA			interrupt-parent = <&gpiog>;
++//AAA			interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
++			reg = <0>;
 +			reset-assert-us = <15000>;
 +			reset-deassert-us = <55000>;
 +			reset-gpios = <&gpioa 11 GPIO_ACTIVE_LOW>;
@@ -59,32 +59,32 @@ index 5f4f6b6e427a5..bacb70b4256bc 100644
 +	};
 +};
 +
-+&ethernet2 {
-+	phy-handle = <&ethphy2>;
-+	phy-mode = "rgmii-id";
-+	pinctrl-0 = <&eth2_rgmii_pins_a>;
-+	pinctrl-1 = <&eth2_rgmii_sleep_pins_a>;
-+	pinctrl-names = "default", "sleep";
-+	st,ext-phyclk;
-+	status = "okay";
-+
-+	mdio {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		compatible = "snps,dwmac-mdio";
-+
-+		ethphy2: ethernet-phy@1 {
-+			/* RTL8211F */
-+			compatible = "ethernet-phy-id001c.c916";
-+			interrupt-parent = <&gpiog>;
-+			interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
-+			reg = <1>;
-+			reset-assert-us = <15000>;
-+			reset-deassert-us = <55000>;
-+			reset-gpios = <&gpiog 8 GPIO_ACTIVE_LOW>;
-+		};
-+	};
-+};
++//AAA&ethernet2 {
++//AAA	phy-handle = <&ethphy2>;
++//AAA	phy-mode = "rgmii-id";
++//AAA	pinctrl-0 = <&eth2_rgmii_pins_a>;
++//AAA	pinctrl-1 = <&eth2_rgmii_sleep_pins_a>;
++//AAA	pinctrl-names = "default", "sleep";
++//AAA	st,ext-phyclk;
++//AAA	status = "okay";
++//AAA
++//AAA	mdio {
++//AAA		#address-cells = <1>;
++//AAA		#size-cells = <0>;
++//AAA		compatible = "snps,dwmac-mdio";
++//AAA
++//AAA		ethphy2: ethernet-phy@1 {
++//AAA			/* RTL8211F */
++//AAA			compatible = "ethernet-phy-id001c.c916";
++//AAA			interrupt-parent = <&gpiog>;
++//AAA			interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
++//AAA			reg = <1>;
++//AAA			reset-assert-us = <15000>;
++//AAA			reset-deassert-us = <55000>;
++//AAA			reset-gpios = <&gpiog 8 GPIO_ACTIVE_LOW>;
++//AAA		};
++//AAA	};
++//AAA};
 +
  &gpioa {
  	gpio-line-names = "", "", "", "",
