@@ -122,7 +122,7 @@ index 0000000000000..5f4f6b6e427a5
 +};
 +
 +&gpioa {
-+	gpio-line-names = "", "", "", "",
++	gpio-line-names = "POK_LED_GREEN", "", "", "",
 +			  "", "DHSBC_USB_PWR_CC1", "", "",
 +			  "", "", "", "DHSBC_nETH1_RST",
 +			  "", "DHCOR_HW-CODING_0", "", "";
@@ -146,7 +146,7 @@ index 0000000000000..5f4f6b6e427a5
 +	gpio-line-names = "", "", "", "",
 +			  "", "DHCOR_RAM-CODING_0", "", "",
 +			  "", "DHCOR_RAM-CODING_1", "", "",
-+			  "", "", "", "";
++			  "", "", "", "POK_LED_BLUE";
 +};
 +
 +&gpioe {
@@ -158,7 +158,7 @@ index 0000000000000..5f4f6b6e427a5
 +
 +&gpiof {
 +	gpio-line-names = "", "", "DHSBC_USB_PWR_nFLT", "",
-+			  "", "", "", "",
++			  "POK_LED_RED", "", "", "",
 +			  "", "", "", "",
 +			  "DHCOR_WL_REG_ON", "DHSBC_USB_PWR_CC2", "", "";
 +};
@@ -527,7 +527,7 @@ index 0000000000000..ddad6497775b8
 +				regulator-name = "vdd_sd";
 +				regulator-min-microvolt = <1800000>;
 +				regulator-max-microvolt = <3300000>;
-+				interrupts = <IT_CURLIM_LDO5 0>;
++				interrupts = <IT_CURLIM_LDO5 0>; regulator-always-on;
 +			};
 +
 +			vdd_sd2: ldo6 { /* VDD_SD2_3V3_1V8 */

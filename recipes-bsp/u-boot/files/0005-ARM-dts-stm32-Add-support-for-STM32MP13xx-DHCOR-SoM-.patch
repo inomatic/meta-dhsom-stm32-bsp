@@ -626,7 +626,7 @@ index 00000000000..ddad6497775
 +				regulator-name = "vdd_sd";
 +				regulator-min-microvolt = <1800000>;
 +				regulator-max-microvolt = <3300000>;
-+				interrupts = <IT_CURLIM_LDO5 0>;
++				interrupts = <IT_CURLIM_LDO5 0>; regulator-always-on;
 +			};
 +
 +			vdd_sd2: ldo6 { /* VDD_SD2_3V3_1V8 */
