@@ -1,0 +1,42 @@
+From e78bb020adf8f49b7d0821b528c7c62f7616a196 Mon Sep 17 00:00:00 2001
+From: Alex Brickwedde <alex@brickwedde.de>
+Date: Thu, 8 May 2025 18:30:16 +0100
+Subject: [PATCH] Added LEDs
+
+This patch adds the LED definitions to the device tree
+
+Signed-off-by: Alex Brickwedde <alex@brickwedde.de>
+---
+ arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+), 0 deletions(-)
+
+diff --git a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
+index aab6b0504510..94cae59709cd 100644
+--- a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
++++ b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
+@@ -28,6 +28,25 @@ aliases {
+ //		serial3 = &usart2;
+ 	};
+ 
++	led {
++		compatible = "gpio-leds";
++		led-red {
++			label = "led-red";
++			gpios = <&gpiof 4 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++		};
++		led-green {
++			label = "led-green";
++			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++		};
++		led-blue {
++			label = "led-blue";
++			gpios = <&gpiod 15 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++		};
++	};
++
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
