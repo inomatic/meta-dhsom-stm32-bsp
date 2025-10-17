@@ -1,7 +1,7 @@
 DEFAULTTUNE ?= "cortexa7thf-neon-vfpv4"
 SOC_FAMILY ?= "stm32mp1"
 
-MACHINEOVERRIDES =. "dh-dhsom:dh-stm32mp1-dhsom:"
+MACHINEOVERRIDES =. "dh-dhsom:dh-stm32mp-dhsom:dh-stm32mp1-dhsom:"
 
 ARM_INSTRUCTION_SET = "thumb"
 
@@ -14,7 +14,7 @@ SERIAL_CONSOLES = "115200;ttySTM0"
 
 # U-Boot bootloader
 UBOOT_ENTRYPOINT := "0xc4000000"
-UBOOT_MAKE_TARGET := "u-boot.itb all"
+UBOOT_MAKE_TARGET := "all"
 UBOOT_BINARY := "u-boot.itb"
 UBOOT_SUFFIX ?= "itb"
 SPL_BINARY := "u-boot-spl.stm32"
@@ -32,12 +32,12 @@ PREFERRED_PROVIDER_u-boot-fw-utils-native ?= "u-boot-mainline-fw-utils-native"
 PREFERRED_PROVIDER_u-boot-mkimage-native ?= "u-boot-mainline-tools-native"
 PREFERRED_PROVIDER_u-boot-tools ?= "u-boot-mainline-tools"
 PREFERRED_PROVIDER_u-boot-tools-native ?= "u-boot-mainline-tools-native"
-PREFERRED_VERSION_u-boot-mainline ?= "2024.07%"
-PREFERRED_VERSION_u-boot-mainline-native ?= "2024.07%"
-PREFERRED_VERSION_u-boot-mainline-fw-utils ?= "2024.07%"
-PREFERRED_VERSION_u-boot-mainline-fw-utils-native ?= "2024.07%"
-PREFERRED_VERSION_u-boot-mainline-tools ?= "2024.07%"
-PREFERRED_VERSION_u-boot-mainline-tools-native ?= "2024.07%"
+PREFERRED_VERSION_u-boot-mainline ?= "2025.01%"
+PREFERRED_VERSION_u-boot-mainline-native ?= "2025.01%"
+PREFERRED_VERSION_u-boot-mainline-fw-utils ?= "2025.01%"
+PREFERRED_VERSION_u-boot-mainline-fw-utils-native ?= "2025.01%"
+PREFERRED_VERSION_u-boot-mainline-tools ?= "2025.01%"
+PREFERRED_VERSION_u-boot-mainline-tools-native ?= "2025.01%"
 
 # Linux kernel
 KERNEL_IMAGETYPE = "fitImage"
@@ -45,8 +45,8 @@ KERNEL_CLASSES += " kernel-fitimage "
 KERNEL_MODULES_AUTOLOAD += " etnaviv "
 
 PREFERRED_PROVIDER_virtual/kernel ?= "linux-stable"
-PREFERRED_VERSION_linux-stable ?= "6.6%"
-KERNEL_DEVICETREE_PATH_PREFIX = "${@'st/' if (d.getVar('PREFERRED_VERSION_linux-stable') in ["6.6%"]) else ''}"
+PREFERRED_VERSION_linux-stable ?= "6.12%"
+KERNEL_DEVICETREE_PATH_PREFIX = "${@'st/' if (d.getVar('PREFERRED_VERSION_linux-stable') in ["6.6%", "6.12%"]) else ''}"
 KERNEL_DTBVENDORED = "0"
 KERNEL_DTC_FLAGS += "-@"
 
