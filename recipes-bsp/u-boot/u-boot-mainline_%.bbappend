@@ -18,6 +18,7 @@ SRC_URI:append:dh-stm32mp1-dhsom = " \
 	file://0006-ARM-dts-stm32-Add-support-for-environment-in-eMMC-on.patch \
 	file://0007-ARM-stm32mp-Fix-dram_bank_mmu_setup-for-ram_top-0.patch \
 	file://0008-ARM-dts-stm32-Add-support-for-STM32MP13xx-DHCOR-SoM-.patch \
+	file://0009-inomatic.patch \
 	"
 
 do_deploy:append:dh-stm32mp13-dhcor-dhsbc() {

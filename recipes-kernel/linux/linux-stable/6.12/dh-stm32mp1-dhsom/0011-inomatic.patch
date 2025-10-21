@@ -1,0 +1,38 @@
+--- source/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts.orig  2025-10-21 08:36:54.030107415 +0200
++++ source/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts       2025-10-21 08:39:25.555308673 +0200
+@@ -75,32 +75,26 @@
+ };
+ 
+ &ethernet1 {
+        nvmem-cell-names = "mac-address";
+        nvmem-cells = <&ethernet_mac1_address>;
+        phy-handle = <&ethphy1>;
+-       phy-mode = "rgmii-id";
++       phy-mode = "rmii";
+        pinctrl-0 = <&eth1_rgmii_pins_a>;
+        pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
+        pinctrl-names = "default", "sleep";
+-       st,ext-phyclk;
++       max-speed = <100>;
+        status = "okay";
+ 
+        mdio {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                compatible = "snps,dwmac-mdio";
+ 
+                ethphy1: ethernet-phy@1 {
+-                       /* RTL8211F */
+-                       compatible = "ethernet-phy-id001c.c916";
+-                       interrupt-parent = <&gpiog>;
+-                       interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
+-                       reg = <1>;
+-                       realtek,clkout-disable;
+-                       realtek,ssc-enable;
++                       reg = <0>;
+                        reset-assert-us = <15000>;
+                        reset-deassert-us = <55000>;
+                        reset-gpios = <&gpioa 11 GPIO_ACTIVE_LOW>;
+ 
+                        leds {
+                                #address-cells = <1>;
