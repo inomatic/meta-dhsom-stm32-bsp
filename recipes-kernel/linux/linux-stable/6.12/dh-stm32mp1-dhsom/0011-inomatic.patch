@@ -1,35 +1,188 @@
 diff --git a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-index 40943ae51435..63898f5e99e4 100644
+index 63898f5e99e4..f024cdc1886b 100644
 --- a/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
 +++ b/arch/arm/boot/dts/st/stm32mp135f-dhcor-dhsbc.dts
-@@ -76,28 +76,23 @@ channel@12 {
+@@ -23,11 +23,30 @@ / {
  
- &ethernet1 {
- 	nvmem-cell-names = "mac-address";
- 	nvmem-cells = <&ethernet_mac1_address>;
- 	phy-handle = <&ethphy1>;
--	phy-mode = "rgmii-id";
-+	phy-mode = "rmii";
- 	pinctrl-0 = <&eth1_rgmii_pins_a>;
- 	pinctrl-1 = <&eth1_rgmii_sleep_pins_a>;
- 	pinctrl-names = "default", "sleep";
--	st,ext-phyclk;
- 	status = "okay";
+ 	aliases {
+ 		ethernet0 = &ethernet1;
+ 		ethernet1 = &ethernet2;
+ 		serial2 = &usart1;
+-		serial3 = &usart2;
++//		serial3 = &usart2;
++	};
++
++	led {
++		compatible = "gpio-leds";
++		led-red {
++			label = "led-red";
++			gpios = <&gpiof 4 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++		};
++		led-green {
++			label = "led-green";
++			gpios = <&gpioa 0 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++		};
++		led-blue {
++			label = "led-blue";
++			gpios = <&gpiod 15 GPIO_ACTIVE_HIGH>;
++			default-state = "on";
++		};
+ 	};
  
- 	mdio {
- 		#address-cells = <1>;
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
+@@ -89,12 +108,10 @@ mdio {
  		#size-cells = <0>;
  		compatible = "snps,dwmac-mdio";
  
  		ethphy1: ethernet-phy@1 {
--			/* RTL8211F */
--			compatible = "ethernet-phy-id001c.c916";
--			interrupt-parent = <&gpiog>;
--			interrupts = <12 IRQ_TYPE_LEVEL_LOW>;
--			reg = <1>;
-+			reg = <0>;
- 			realtek,clkout-disable;
- 			realtek,ssc-enable;
+ 			reg = <0>;
+-			realtek,clkout-disable;
+-			realtek,ssc-enable;
  			reset-assert-us = <15000>;
  			reset-deassert-us = <55000>;
  			reset-gpios = <&gpioa 11 GPIO_ACTIVE_LOW>;
+ 
+ 			leds {
+@@ -117,62 +134,62 @@ led@1 {
+ 			};
+ 		};
+ 	};
+ };
+ 
+-&ethernet2 {
+-	nvmem-cell-names = "mac-address";
+-	nvmem-cells = <&ethernet_mac2_address>;
+-	phy-handle = <&ethphy2>;
+-	phy-mode = "rgmii-id";
+-	pinctrl-0 = <&eth2_rgmii_pins_a>;
+-	pinctrl-1 = <&eth2_rgmii_sleep_pins_a>;
+-	pinctrl-names = "default", "sleep";
+-	st,ext-phyclk;
+-	status = "okay";
+-
+-	mdio {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		compatible = "snps,dwmac-mdio";
+-
+-		ethphy2: ethernet-phy@1 {
+-			/* RTL8211F */
+-			compatible = "ethernet-phy-id001c.c916";
+-			interrupt-parent = <&gpiog>;
+-			interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
+-			reg = <1>;
+-			realtek,clkout-disable;
+-			realtek,ssc-enable;
+-			reset-assert-us = <15000>;
+-			reset-deassert-us = <55000>;
+-			reset-gpios = <&gpiog 8 GPIO_ACTIVE_LOW>;
+-
+-			leds {
+-				#address-cells = <1>;
+-				#size-cells = <0>;
+-
+-				led@0 {
+-					reg = <0>;
+-					color = <LED_COLOR_ID_GREEN>;
+-					function = LED_FUNCTION_LAN;
+-					linux,default-trigger = "netdev";
+-				};
+-
+-				led@1 {
+-					reg = <1>;
+-					color = <LED_COLOR_ID_YELLOW>;
+-					function = LED_FUNCTION_LAN;
+-					linux,default-trigger = "netdev";
+-				};
+-			};
+-		};
+-	};
+-};
++//&ethernet2 {
++//	nvmem-cell-names = "mac-address";
++//	nvmem-cells = <&ethernet_mac2_address>;
++//	phy-handle = <&ethphy2>;
++//	phy-mode = "rgmii-id";
++//	pinctrl-0 = <&eth2_rgmii_pins_a>;
++//	pinctrl-1 = <&eth2_rgmii_sleep_pins_a>;
++//	pinctrl-names = "default", "sleep";
++//	st,ext-phyclk;
++//	status = "okay";
++//
++//	mdio {
++//		#address-cells = <1>;
++//		#size-cells = <0>;
++//		compatible = "snps,dwmac-mdio";
++//
++//		ethphy2: ethernet-phy@1 {
++//			/* RTL8211F */
++//			compatible = "ethernet-phy-id001c.c916";
++//			interrupt-parent = <&gpiog>;
++//			interrupts = <15 IRQ_TYPE_LEVEL_LOW>;
++//			reg = <1>;
++//			realtek,clkout-disable;
++//			realtek,ssc-enable;
++//			reset-assert-us = <15000>;
++//			reset-deassert-us = <55000>;
++//			reset-gpios = <&gpiog 8 GPIO_ACTIVE_LOW>;
++//
++//			leds {
++//				#address-cells = <1>;
++//				#size-cells = <0>;
++//
++//				led@0 {
++//					reg = <0>;
++//					color = <LED_COLOR_ID_GREEN>;
++//					function = LED_FUNCTION_LAN;
++//					linux,default-trigger = "netdev";
++//				};
++//
++//				led@1 {
++//					reg = <1>;
++//					color = <LED_COLOR_ID_YELLOW>;
++//					function = LED_FUNCTION_LAN;
++//					linux,default-trigger = "netdev";
++//				};
++//			};
++//		};
++//	};
++//};
+ 
+ &gpioa {
+-	gpio-line-names = "", "", "", "",
++	gpio-line-names = "POK_LED_GREEN", "", "", "",
+ 			  "", "DHSBC_USB_PWR_CC1", "", "",
+ 			  "", "", "", "DHSBC_nETH1_RST",
+ 			  "", "DHCOR_HW-CODING_0", "", "DHSBC_HW-CODE_2";
+ };
+ 
+@@ -192,11 +209,11 @@ &gpioc {
+ 
+ &gpiod {
+ 	gpio-line-names = "", "", "", "",
+ 			  "", "DHCOR_RAM-CODING_0", "", "",
+ 			  "", "DHCOR_RAM-CODING_1", "", "",
+-			  "", "DHSBC_HW-CODE_1", "", "";
++			  "", "DHSBC_HW-CODE_1", "", "POK_LED_BLUE";
+ };
+ 
+ &gpioe {
+ 	gpio-line-names = "", "", "", "",
+ 			  "", "", "", "",
+@@ -204,11 +221,11 @@ &gpioe {
+ 			  "DHSBC_nTPM_PIRQ", "", "DHCOR_WL_HOST_WAKE", "";
+ };
+ 
+ &gpiof {
+ 	gpio-line-names = "", "", "DHSBC_USB_PWR_nFLT", "",
+-			  "", "", "", "",
++			  "POK_LED_RED", "", "", "",
+ 			  "", "", "", "",
+ 			  "DHCOR_WL_REG_ON", "DHSBC_USB_PWR_CC2", "", "";
+ };
+ 
+ &gpiog {
