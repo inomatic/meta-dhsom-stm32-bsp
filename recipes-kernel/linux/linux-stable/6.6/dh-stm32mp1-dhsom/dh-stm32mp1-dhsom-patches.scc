@@ -38,4 +38,3 @@ patch 0038-ARM-dts-stm32-Keep-MDIO-bus-in-AF-across-suspend-DH-.patch
 patch 0041-ARM-dts-stm32-Add-DTOs-for-STM32MP13xx-DHCOR-SoM-and.patch
 patch 0043-leds-trigger-netdev-Check-offload-ability-on-interfa.patch
 patch 0044-ARM-dts-stm32-Increase-CPU-core-voltage-on-STM32MP13.patch
-patch 0044a-inomatic.patch
